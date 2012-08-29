@@ -1,0 +1,1 @@
+Class to reduce the amount of native HTLM coding within PHP files.
