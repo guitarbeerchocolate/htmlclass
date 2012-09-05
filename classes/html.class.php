@@ -31,47 +31,7 @@ class html
 			$this->outputString .= '</'.$type.'>';
 		}
 		return $this->outputString.PHP_EOL;
-	}
-
-	function doctype()
-	{
-		return '<!DOCTYPE html>'.PHP_EOL;
-	}
-
-	function meta($description = NULL, $keywords = NULL)
-	{
-		$fullMetaJacket = '';
-		$arr = Array
-		(
-			'name'=>'viewport',
-			'content'=>'width=device-width, initial-scale=1.0'
-		);
-		$fullMetaJacket .= $this->tag('meta', $arr);
-		$arr = Array
-		(
-			'name'=>'apple-mobile-web-app-capable',
-			'content'=>'yes'
-		);
-		$fullMetaJacket .= $this->tag('meta', $arr);		
-		$arr = Array
-		(
-			'name'=>'description',
-			'content'=>$description
-		);
-		$fullMetaJacket .= $this->tag('meta', $arr);
-		$arr = Array
-		(
-			'name'=>'keywords',
-			'content'=>$keywords
-		);
-		$fullMetaJacket .= $this->tag('meta', $arr);
-		return $fullMetaJacket;
-	}
-
-	function style($ss)
-	{
-		return $this->tag('style', $ss);
-	}
+	}	
 
 	function hr()
 	{
@@ -87,13 +47,6 @@ class html
 	{
 		$arr = array('src'=>$src, 'alt'=>$alt);
 		return $this->tag('img',$arr).PHP_EOL;
-	}
-
-	function form()
-	{
-		$arr = Array('type'=>'submit', 'class'=>'btn');
-		$form = $this->tag('button',$arr,'Submit');
-		return $this->tag('form',$form).PHP_EOL;
 	}
 
 	private function handleArguments()

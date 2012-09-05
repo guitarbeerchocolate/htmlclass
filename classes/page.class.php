@@ -1,26 +1,30 @@
 <?php
 require_once 'html.class.php';
 
-class page
+class page extends html
 {
-	private $html;
-	function __construct()
+	function __construct($title = NULL)
 	{	
-		$this->html = new html;		
-	}
+		parent::__construct();
+		include 'includes/pretitle.inc.php';
+		echo '<title>'.$title.'</title>';
+		include 'includes/meta.inc.php';
+		include 'includes/styles.inc.php';
+		include 'includes/resets.inc.php';		
+		include 'includes/icons.inc.php';
+		include 'includes/scripts.inc.php';
+		include 'includes/endheadbodystart.inc.php';
+		include 'includes/navigation.inc.php';
+		echo '<div class="container">';
+		include 'includes/banner.inc.php';		
+	}	
 
-	function head()
+	function end()
 	{
-		$retStr = NULL;
-		$retStr = $this->html->doctype();
-		$retStr .= $this->html->tag('head',$meta.$style);
-		// $retStr .= $this->html->meta();
-		return $retStr;
-	}
-
-	function __destruct()
-	{
-		
+		include 'includes/footer.inc.php';
+		echo '</div>';		
+		include 'includes/jquery.inc.php';
+		include 'includes/pageend.inc.php';
 	}
 }
 ?>
